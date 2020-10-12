@@ -1,0 +1,55 @@
+[
+  {
+
+        "Id": 1,
+        "sellRent": 1,
+        "name": "Birla House",
+        "type": "House",
+        "price": 12000,
+        "image": "prop-1"
+    },
+    {
+
+        "Id": 2,
+        "sellRent": 2,
+        "name": "Uyo House",
+        "type": "Duplex",
+        "price": 50000,
+        "image": "prop-2"
+    },
+    {
+
+        "Id": 3,
+        "sellRent": 1,
+        "name": "Trump House",
+        "type": "Bungalow",
+        "price": 65000,
+        "image": "prop-3"
+    },
+    {
+
+        "Id": 4,
+        "sellRent": 1,
+        "name": "Obama House",
+        "type": "House",
+        "price": 45000,
+        "image": "prop-4"
+    },
+    {
+
+        "Id": 5,
+        "sellRent": 2,
+        "name": "Bush House",
+        "type": "House",
+        "price": 48000,
+        "image": "prop-5"
+    },
+    {
+
+      "Id": 6,
+      "sellRent": 1,
+      "name": "My Villa",
+      "type": "Villa",
+      "price": 70000
+  }
+]

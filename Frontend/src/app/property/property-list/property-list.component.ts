@@ -1,4 +1,8 @@
+
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { HousingService } from 'src/app/services/housing.service';
+import { IProperty } from '../IProperty.interface';
 
 @Component({
   selector: 'app-property-list',
@@ -6,55 +10,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./property-list.component.css']
 })
 export class PropertyListComponent implements OnInit {
+  sellRent = 1;
+  properties: IProperty[];
 
-  properties: Array <any> = [
-      {
+  constructor(private route: ActivatedRoute,
+    private housingService: HousingService) { }
 
-            "Id": 1,
-            "name": "Birla House",
-            "type": "House",
-            "price": 12000
+  ngOnInit(): void {
+        if (this.route.snapshot.url.toString()) {
+            this.sellRent = 2; //Means we are on rent property url else we are on base url
+        }
+    this.housingService.getAllProperties(this.sellRent).subscribe(
+        data => {
+        this.properties = data;
+        // console.log(data);
+        // console.log(this.route.snapshot.url.toString());
         },
-        {
+        error => {
+          console.log('httperror:');
+          console.log(error);
+        }
+    )
+    // this.http.get('data/properties.json').subscribe(
+    //   data => {
+    //     this.properties = data;
 
-            "Id": 2,
-            "name": "Uyo House",
-            "type": "Duplex",
-            "price": 50000
-        },
-        {
-
-            "Id": 3,
-            "name": "Trump House",
-            "type": "Bungalow",
-            "price": 65000
-        },
-        {
-
-            "Id": 4,
-            "name": "Obama House",
-            "type": "House",
-            "price": 45000
-        },
-        {
-
-            "Id": 5,
-            "name": "Bush House",
-            "type": "House",
-            "price": 48000
-        },
-        {
-
-          "Id": 6,
-          "name": "My Villa",
-          "type": "Villa",
-          "price": 70000
-      }
-]
-
-  constructor() { }
-
-  ngOnInit() {
+    //   }
+    // )
   }
 
 }
