@@ -10,7 +10,9 @@ import { HousingService } from './services/housing.service';
 import { AddPropertyComponent } from './property/add-property/add-property.component';
 import { RouterModule, Routes } from '@angular/router';
 import { PropertyDetailComponent } from './property/property-detail/property-detail.component';
-
+import {FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { UserLoginComponent } from './user/user-login/user-login.component';
+import { UserRegisterComponent } from './user/user-register/user-register.component';
 
 
 const appRoutes: Routes = [
@@ -20,6 +22,8 @@ const appRoutes: Routes = [
   {path: 'rent-property', component: PropertyListComponent},
   {path: 'add-property', component: AddPropertyComponent},
   {path: 'property-detail/:id', component: PropertyDetailComponent},
+  {path: 'user/login', component: UserLoginComponent},
+  {path: 'user/register', component: UserRegisterComponent},
 
   // Wrong url loads the template iew associated with this component
   {path: '**', component: PropertyListComponent}
@@ -34,13 +38,16 @@ const appRoutes: Routes = [
     PropertyListComponent,
     PropertyCardComponent,
     AddPropertyComponent,
-    PropertyDetailComponent
-
+    PropertyDetailComponent,
+    UserLoginComponent,
+    UserRegisterComponent
 
    ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
