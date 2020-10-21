@@ -28,7 +28,7 @@ export class AddPropertyComponent implements OnInit {
 
   mainEntrances: Array<string> = ['East', 'West', 'South', 'North']
 
-  cityList: Array<string> = ['Uyo', 'Eket', 'Ikot Ekpene', 'Oron' ]
+  cityList: string[];
 
   constructor(private fb: FormBuilder,
               private router: Router,
@@ -38,7 +38,11 @@ export class AddPropertyComponent implements OnInit {
 
   ngOnInit() {
     this.CreateAddPropertyForm();
-    console.log('success')
+    this.housingService.getAllCities().subscribe(data => {
+      this.cityList = data;
+      console.log(data);
+    });
+
   }
 
 // Two way Data Binding
@@ -51,7 +55,7 @@ propertyView: IpropertyBase = {
   ftype: null,
   BHK: null,
   builtArea: null,
-  city: null,
+  city: '',
   RTM:null,
 };
 
